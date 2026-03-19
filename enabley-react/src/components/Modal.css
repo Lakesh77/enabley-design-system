@@ -1,0 +1,23 @@
+.en-modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.45);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 200;
+  animation: fadeIn .2s;
+}
+@keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+
+.en-modal {
+  background: var(--white);
+  border-radius: 16px;
+  width: 460px; max-width: 90vw;
+  box-shadow: 0 20px 60px rgba(0,0,0,.2);
+  animation: slideUp .2s;
+}
+@keyframes slideUp { from { transform:translateY(12px) } to { transform:translateY(0) } }
+
+.en-modal__head   { padding:20px 24px 16px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--primary-l2); }
+.en-modal__title  { font-size:16px; font-weight:600; }
+.en-modal__close  { background:none; border:none; cursor:pointer; color:var(--grey); font-size:22px; line-height:1; }
+.en-modal__body   { padding:20px 24px; font-size:14px; line-height:1.7; color:var(--grey); }
+.en-modal__footer { padding:16px 24px; border-top:1px solid var(--primary-l2); display:flex; justify-content:flex-end; gap:10px; }

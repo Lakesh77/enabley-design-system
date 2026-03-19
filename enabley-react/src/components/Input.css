@@ -1,0 +1,38 @@
+.en-field { display: flex; flex-direction: column; gap: 6px; }
+.en-label  { font-size: 14px; color: var(--text); }
+
+.en-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  border: 1px solid var(--grey);
+  border-radius: var(--r-in);
+  padding: 10px 12px;
+  transition: border-color .15s, box-shadow .15s;
+}
+.en-input-wrap:focus-within {
+  border-color: var(--primary-md);
+  box-shadow: 0 0 0 3px rgba(126,52,149,.08);
+}
+.en-input-wrap--error         { border-color: var(--error); }
+.en-input-wrap--error:focus-within { box-shadow: 0 0 0 3px rgba(242,86,110,.1); }
+.en-input-wrap--disabled      { background: var(--bg); border-color: #ddd; pointer-events: none; }
+
+.en-input {
+  border: none;
+  outline: none;
+  font-family: 'Lexend', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  flex: 1;
+  background: transparent;
+  resize: none;
+  width: 100%;
+}
+.en-input::placeholder { color: var(--placeholder); }
+
+.en-input-icon { display: flex; align-items: center; color: var(--grey); flex-shrink: 0; }
+
+.en-field-hint           { font-size: 12px; color: var(--grey); }
+.en-field-hint--error    { color: var(--error); }

@@ -1,0 +1,11 @@
+.en-tabs__bar { display:flex; border-bottom:2px solid var(--primary-l2); }
+.en-tabs__tab {
+  padding:10px 20px; font-size:14px; cursor:pointer;
+  color:var(--grey); border:none; background:none;
+  border-bottom:2px solid transparent; margin-bottom:-2px;
+  font-family:'Lexend',sans-serif;
+  transition:color .15s, border-color .15s;
+}
+.en-tabs__tab:hover { color:var(--primary-md); }
+.en-tabs__tab--active { color:var(--primary); border-color:var(--primary); font-weight:500; }
+.en-tabs__panel { padding:16px 0; font-size:14px; color:var(--text); line-height:1.7; }

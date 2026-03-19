@@ -1,0 +1,11 @@
+.en-progress { display: flex; flex-direction: column; gap: 4px; width: 100%; }
+.en-progress__header { display: flex; justify-content: space-between; }
+.en-progress__label  { font-size: 12px; color: var(--grey); }
+.en-progress__value  { font-size: 12px; color: var(--grey); }
+.en-progress__track  { height: 4px; border-radius: 2px; background: #d9d9d9; overflow: hidden; }
+.en-progress__fill   { height: 100%; border-radius: 2px; transition: width .4s; }
+
+.en-progress__fill--purple { background: linear-gradient(90deg,rgba(154,36,150,.5),#9a2496); }
+.en-progress__fill--green  { background: linear-gradient(90deg,rgba(40,167,69,.5),#28a745); }
+.en-progress__fill--blue   { background: linear-gradient(90deg,rgba(78,108,255,.5),#4e6cff); }
+.en-progress__fill--red    { background: linear-gradient(90deg,rgba(220,53,69,.5),#dc3545); }
