@@ -329,23 +329,7 @@ export default function App() {
 
           {/* FEATURES */}
           <Section id="features" title="Features" desc="Real product UI built with the Enabley design system.">
-            <Story name="Manage Learners Modal" meta="80% width · sortable · searchable">
-              <Button variant="primary" size="sm" onClick={() => setLearners(true)}>
-                Open Manage Learners
-              </Button>
-              {learnersOpen && (
-                <div className="ml-modal-overlay" onClick={(e) => e.target === e.currentTarget && setLearners(false)}>
-                  <div className="ml-modal-wrap">
-                    <div className="ml-modal-header">
-                      <span className="ml-modal-title">Manage Learners</span>
-                      <button className="ml-modal-close" onClick={() => setLearners(false)}>×</button>
-                    </div>
-                    <ManageLearners onClose={() => setLearners(false)} />
-                  </div>
-                </div>
-              )}
-            </Story>
-            <Story name="Manage Learners Page" meta="standalone page">
+            <Story name="Manage Learners" meta="standalone page · 80% modal · sortable · searchable">
               <div style={{ width: '100%', border: '1px solid var(--primary-l2)', borderRadius: 'var(--r-card)', overflow: 'hidden', height: 380 }}>
                 <ManageLearnersPage />
               </div>
