@@ -1,0 +1,204 @@
+/* ── DataTable wrapper ────────────────────────────────────────── */
+.dt-wrap {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid #e4e4e4;
+  border-radius: var(--r-card);
+  overflow: hidden;
+  font-family: 'Lexend', sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── toolbar ──────────────────────────────────────────────────── */
+.dt-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e4e4e4;
+  gap: 12px;
+}
+
+.dt-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  border: 1px solid var(--primary-l1);
+  border-radius: var(--r-in);
+  padding: 6px 10px;
+  flex: 1;
+  max-width: 300px;
+}
+
+.dt-search__icon { flex-shrink: 0; }
+
+.dt-search__input {
+  border: none;
+  background: transparent;
+  font-family: 'Lexend', sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  outline: none;
+  width: 100%;
+}
+
+.dt-search__input::placeholder { color: var(--placeholder); }
+
+.dt-count {
+  font-size: 12px;
+  color: var(--grey);
+  white-space: nowrap;
+}
+
+/* ── scroll container ─────────────────────────────────────────── */
+.dt-scroll {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 420px;
+}
+
+/* ── table ────────────────────────────────────────────────────── */
+.dt-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+/* ── header ───────────────────────────────────────────────────── */
+.dt-th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: rgba(129, 149, 163, 0.10);
+  padding: 10px 10px;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid #d8d8d8;
+  user-select: none;
+}
+
+.dt-th--sortable { cursor: pointer; }
+
+.dt-th--sortable:hover { background: rgba(129, 149, 163, 0.18); }
+
+.dt-th__inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dt-th__label {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.dt-info-icon { flex-shrink: 0; opacity: 0.7; }
+
+.dt-sort-icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+/* ── rows ─────────────────────────────────────────────────────── */
+.dt-row { transition: background 0.12s; }
+
+.dt-row:hover td { background: var(--primary-l2); }
+
+.dt-td {
+  padding: 0 10px;
+  height: 48px;
+  border-bottom: 1px solid #d8d8d8;
+  vertical-align: middle;
+  color: #37474f;
+  font-size: 13px;
+  white-space: nowrap;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dt-table tbody tr:last-child .dt-td { border-bottom: none; }
+
+/* ── cell types ───────────────────────────────────────────────── */
+.dt-cell-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dt-cell-name__text {
+  font-weight: 500;
+  color: #37474f;
+  white-space: nowrap;
+}
+
+.dt-cell-progress {
+  min-width: 110px;
+  max-width: 140px;
+}
+
+.dt-cell-score {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.dt-cell-null { color: var(--placeholder); }
+
+.dt-cell-date {
+  color: var(--grey);
+  font-size: 12px;
+}
+
+/* ── empty state ──────────────────────────────────────────────── */
+.dt-empty {
+  text-align: center;
+  padding: 40px;
+  color: var(--grey);
+  font-size: 13px;
+}
+
+/* ── pagination ───────────────────────────────────────────────── */
+.dt-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 10px 16px;
+  border-top: 1px solid #e4e4e4;
+}
+
+.dt-page-btn {
+  background: none;
+  border: 1px solid var(--primary-l1);
+  border-radius: var(--r-in);
+  padding: 5px 12px;
+  font-family: 'Lexend', sans-serif;
+  font-size: 12px;
+  color: var(--primary);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.dt-page-btn:hover:not(:disabled) {
+  background: var(--primary-l2);
+  border-color: var(--primary);
+}
+
+.dt-page-btn:disabled {
+  color: var(--placeholder);
+  border-color: #e4e4e4;
+  cursor: not-allowed;
+}
+
+.dt-page-info {
+  font-size: 12px;
+  color: var(--grey);
+}

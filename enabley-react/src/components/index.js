@@ -12,3 +12,4 @@ export { default as Tooltip }  from './Tooltip';
 export { default as Tabs }     from './Tabs';
 export { default as Spinner }        from './Spinner';
 export { default as ManageLearners } from './ManageLearners';
+export { default as DataTable }      from './DataTable';

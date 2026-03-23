@@ -4,6 +4,7 @@ import {
   Badge, Avatar, AvatarGroup, Progress,
   Alert, Modal, Tooltip, Tabs, Spinner,
   ManageLearners,
+  DataTable,
 } from './components';
 import './App.css';
 
@@ -258,7 +259,10 @@ export default function App() {
           </Section>
 
           {/* DATA DISPLAY */}
-          <Section id="data" title="Data Display" desc="Avatars, avatar groups, and tabs.">
+          <Section id="data" title="Data Display" desc="Data table, avatars, avatar groups, and tabs.">
+            <Story name="Data Table" meta="sortable · searchable · paginated">
+              <DataTable />
+            </Story>
             <Story name="Avatars" meta="xs · sm · md · lg · xl">
               <Avatar name="Sarah Anderson" size="xs" />
               <Avatar name="Alex Johnson"   size="sm" />
