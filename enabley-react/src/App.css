@@ -55,3 +55,29 @@
 
 /* ── Grid ── */
 .sb-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; }
+
+/* ── ManageLearners modal overlay (in storybook) ── */
+.ml-modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(78, 43, 106, 0.35);
+  display: flex; align-items: center; justify-content: center;
+}
+.ml-modal-wrap {
+  background: var(--white);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-lg);
+  width: 760px; max-width: 96vw;
+  overflow: hidden;
+}
+.ml-modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 24px;
+  background: #2d3748;
+  color: #fff;
+}
+.ml-modal-title { font-size: 16px; font-weight: 600; }
+.ml-modal-close {
+  background: none; border: none; color: #fff;
+  font-size: 22px; cursor: pointer; line-height: 1; opacity: .7;
+}
+.ml-modal-close:hover { opacity: 1; }

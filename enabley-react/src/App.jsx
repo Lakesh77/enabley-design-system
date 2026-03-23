@@ -3,6 +3,7 @@ import {
   Button, Input, Checkbox, RadioGroup, Toggle,
   Badge, Avatar, AvatarGroup, Progress,
   Alert, Modal, Tooltip, Tabs, Spinner,
+  ManageLearners,
 } from './components';
 import './App.css';
 
@@ -15,6 +16,7 @@ const NAV = [
   { id: 'feedback',   label: 'Feedback',     group: 'Components' },
   { id: 'data',       label: 'Data Display', group: 'Components' },
   { id: 'overlay',    label: 'Overlay',      group: 'Components' },
+  { id: 'features',  label: 'Features',     group: 'Components' },
 ];
 
 function Story({ name, meta, children }) {
@@ -50,9 +52,10 @@ function Swatch({ name, hex, bg }) {
 }
 
 export default function App() {
-  const [active, setActive]   = useState('colors');
-  const [modal1, setModal1]   = useState(false);
-  const [radioVal, setRadioVal] = useState('open');
+  const [active, setActive]         = useState('colors');
+  const [modal1, setModal1]         = useState(false);
+  const [learnersOpen, setLearners] = useState(false);
+  const [radioVal, setRadioVal]     = useState('open');
 
   const groups = [...new Set(NAV.map(n => n.group))];
 
@@ -316,6 +319,26 @@ export default function App() {
                   <Input label="Description" placeholder="Describe the learning objectives…" rows={3} />
                 </div>
               </Modal>
+            </Story>
+          </Section>
+
+          {/* FEATURES */}
+          <Section id="features" title="Features" desc="Real product UI built with the Enabley design system.">
+            <Story name="Manage Learners" meta="course assignment panel">
+              <Button variant="primary" size="sm" onClick={() => setLearners(true)}>
+                Open Manage Learners
+              </Button>
+              {learnersOpen && (
+                <div className="ml-modal-overlay" onClick={(e) => e.target === e.currentTarget && setLearners(false)}>
+                  <div className="ml-modal-wrap">
+                    <div className="ml-modal-header">
+                      <span className="ml-modal-title">Manage Learners</span>
+                      <button className="ml-modal-close" onClick={() => setLearners(false)}>×</button>
+                    </div>
+                    <ManageLearners onClose={() => setLearners(false)} />
+                  </div>
+                </div>
+              )}
             </Story>
           </Section>
 
