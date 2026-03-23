@@ -1,0 +1,164 @@
+/* ── page ─────────────────────────────────────────────────────── */
+.mlp-page {
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: 'Lexend', sans-serif;
+}
+
+/* ── topbar ───────────────────────────────────────────────────── */
+.mlp-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 56px;
+  background: var(--white);
+  border-bottom: 1px solid var(--primary-l2);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.mlp-topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.mlp-logo { display: flex; flex-direction: column; gap: 0; }
+.mlp-logo__name { font-size: 16px; font-weight: 700; color: var(--primary); line-height: 1.1; }
+.mlp-logo__sub  { font-size: 9px;  color: var(--grey); text-transform: uppercase; letter-spacing: 0.08em; }
+
+.mlp-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--grey);
+}
+
+.mlp-breadcrumb__sep { color: var(--primary-l1); }
+.mlp-breadcrumb__active { color: var(--text); font-weight: 500; }
+
+/* ── body ─────────────────────────────────────────────────────── */
+.mlp-body {
+  padding: 32px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ── course card ──────────────────────────────────────────────── */
+.mlp-course-card {
+  background: var(--white);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-sm);
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mlp-course-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.mlp-course-card__title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 6px;
+}
+
+.mlp-course-card__meta {
+  font-size: 12px;
+  color: var(--grey);
+  margin: 0;
+}
+
+/* ── stats row ────────────────────────────────────────────────── */
+.mlp-stats {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--primary-l2);
+  border-radius: var(--r-card);
+  overflow: hidden;
+}
+
+.mlp-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 12px;
+  border-right: 1px solid var(--primary-l2);
+  background: var(--bg);
+  gap: 4px;
+}
+
+.mlp-stat:last-child { border-right: none; }
+
+.mlp-stat__val {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.mlp-stat__label {
+  font-size: 11px;
+  color: var(--grey);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── modal overlay ────────────────────────────────────────────── */
+.mlp-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(78, 43, 106, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mlp-modal {
+  background: var(--white);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-lg);
+  width: 80%;
+  max-width: 1100px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.mlp-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #2d3748;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.mlp-modal__title { font-size: 16px; font-weight: 600; }
+
+.mlp-modal__close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+}
+
+.mlp-modal__close:hover { opacity: 1; }

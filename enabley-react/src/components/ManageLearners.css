@@ -1,13 +1,10 @@
-/* ── ManageLearners shell ──────────────────────────────────────── */
+/* ── shell ────────────────────────────────────────────────────── */
 .ml-shell {
   display: flex;
-  min-height: 420px;
+  min-height: 460px;
   background: var(--white);
-  border-radius: var(--r-card);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
   font-family: 'Lexend', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text);
 }
 
@@ -37,10 +34,7 @@
   transition: background 0.15s, color 0.15s;
 }
 
-.ml-sidebar__item:hover {
-  background: var(--primary-l2);
-  color: var(--primary);
-}
+.ml-sidebar__item:hover { background: var(--primary-l2); color: var(--primary); }
 
 .ml-sidebar__item--active {
   border-left-color: var(--primary);
@@ -49,19 +43,21 @@
   font-weight: 500;
 }
 
-/* ── main panel ───────────────────────────────────────────────── */
+/* ── main ─────────────────────────────────────────────────────── */
 .ml-main {
   flex: 1;
-  padding: 24px 28px;
-  overflow-x: auto;
+  padding: 20px 24px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-/* ── header row ───────────────────────────────────────────────── */
+/* ── header ───────────────────────────────────────────────────── */
 .ml-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
 }
 
 .ml-header__stat {
@@ -70,38 +66,24 @@
   gap: 10px;
 }
 
-.ml-header__icon {
-  width: 36px;
-  height: 36px;
-  color: var(--grey);
-}
+.ml-header__icon { width: 34px; height: 34px; color: var(--grey); }
 
 .ml-header__count {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--text);
   line-height: 1;
 }
 
-.ml-header__total {
-  font-size: 20px;
-  color: var(--grey);
-  font-weight: 400;
-}
-
-.ml-header__label {
-  font-size: 15px;
-  color: var(--text);
-  font-weight: 400;
-}
+.ml-header__total { font-size: 18px; color: var(--grey); font-weight: 400; }
+.ml-header__label { font-size: 14px; color: var(--text); }
 
 /* ── legend ───────────────────────────────────────────────────── */
 .ml-legend {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 20px;
-  padding: 12px 14px;
+  padding: 10px 14px;
   background: var(--bg);
   border-radius: var(--r-in);
   border: 1px solid var(--primary-l1);
@@ -110,96 +92,155 @@
 .ml-legend__item {
   display: flex;
   align-items: center;
-  gap: 7px;
-  font-size: 12px;
+  gap: 6px;
+  font-size: 11px;
   color: var(--grey);
+}
+
+/* ── toolbar ──────────────────────────────────────────────────── */
+.ml-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ml-search {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--bg);
+  border: 1px solid var(--primary-l1);
+  border-radius: var(--r-in);
+  padding: 6px 10px;
+  flex: 1;
+  max-width: 280px;
+}
+
+.ml-search__input {
+  border: none;
+  background: transparent;
+  font-family: 'Lexend', sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  outline: none;
+  width: 100%;
+}
+
+.ml-search__input::placeholder { color: var(--placeholder); }
+.ml-count { font-size: 11px; color: var(--grey); white-space: nowrap; }
+
+/* ── table scroll ─────────────────────────────────────────────── */
+.ml-table-scroll {
+  overflow-x: auto;
+  border: 1px solid #e4e4e4;
+  border-radius: var(--r-in);
 }
 
 /* ── table ────────────────────────────────────────────────────── */
 .ml-table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
+  min-width: 620px;
 }
 
-.ml-table colgroup col:nth-child(1) { width: 28%; }  /* Username */
-.ml-table colgroup col:nth-child(2) { width: 20%; }  /* Name */
-.ml-table colgroup col:nth-child(3) { width: 10%; }  /* Status */
-.ml-table colgroup col:nth-child(4) { width: 35%; }  /* Assignment */
-.ml-table colgroup col:nth-child(5) { width: 7%;  }  /* Actions */
-
-.ml-table th {
+/* ── header cells ─────────────────────────────────────────────── */
+.ml-th {
+  position: sticky;
+  top: 0;
+  background: rgba(129, 149, 163, 0.10);
+  padding: 10px 12px;
   text-align: left;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--grey);
-  padding: 8px 10px;
-  border-bottom: 2px solid var(--primary-l2);
+  white-space: nowrap;
+  border-bottom: 1px solid #d8d8d8;
+  user-select: none;
+}
+
+.ml-th--sortable { cursor: pointer; }
+.ml-th--sortable:hover { background: rgba(129, 149, 163, 0.18); }
+
+.ml-th__inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ml-th__label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.ml-info-icon { flex-shrink: 0; opacity: 0.65; }
+.ml-sort-icon { display: inline-flex; align-items: center; flex-shrink: 0; }
+
+/* ── data rows ────────────────────────────────────────────────── */
+.ml-row { transition: background 0.1s; }
+.ml-row:hover .ml-td { background: var(--primary-l2); }
+.ml-row--readonly .ml-td { color: var(--placeholder); }
+
+.ml-td {
+  padding: 0 12px;
+  height: 48px;
+  border-bottom: 1px solid #e4e4e4;
+  vertical-align: middle;
+  font-size: 13px;
   white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
 }
 
-.ml-table td {
-  padding: 10px 10px;
-  border-bottom: 1px solid var(--primary-l2);
-  vertical-align: middle;
-  overflow: hidden;
+.ml-table tbody tr:last-child .ml-td { border-bottom: none; }
+
+/* ── name cell ────────────────────────────────────────────────── */
+.ml-td--name { min-width: 160px; }
+
+.ml-cell-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.ml-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.ml-table tbody tr:hover td {
-  background: var(--bg);
-}
-
-.ml-table__row--readonly td {
-  color: var(--placeholder);
+.ml-cell-name__text {
+  font-weight: 500;
+  color: #37474f;
+  white-space: nowrap;
 }
 
 /* ── username cell ────────────────────────────────────────────── */
-.ml-table__username {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
+.ml-td--username {
+  color: var(--grey);
+  font-size: 12px;
 }
 
-.ml-table__group-icon {
-  width: 14px;
-  height: 14px;
+.ml-group-icon {
+  width: 13px;
+  height: 13px;
   color: var(--primary);
-  flex-shrink: 0;
+  vertical-align: middle;
+  margin-right: 4px;
 }
 
-/* ── status ───────────────────────────────────────────────────── */
-.ml-status {
-  color: var(--primary);
-  font-weight: 500;
-  font-size: 13px;
-}
+/* ── actions cell ─────────────────────────────────────────────── */
+.ml-td--actions { text-align: center; width: 72px; }
 
 /* ── source badge ─────────────────────────────────────────────── */
-.ml-source {
-  display: inline-flex;
-  cursor: default;
-}
+.ml-source { display: inline-flex; cursor: default; max-width: 100%; }
 
 .ml-source .en-badge {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  max-width: 100%;
-  white-space: nowrap;
+  gap: 4px;
+  max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.ml-source__icon {
-  font-size: 11px;
-  flex-shrink: 0;
-}
+.ml-source__icon { font-size: 10px; flex-shrink: 0; }
 
 .ml-source__text {
   overflow: hidden;
@@ -207,15 +248,9 @@
   font-size: 11px;
 }
 
-.ml-source__text strong {
-  font-weight: 600;
-}
+.ml-source__text strong { font-weight: 600; }
 
-/* ── actions ──────────────────────────────────────────────────── */
-.ml-table__actions {
-  text-align: center;
-}
-
+/* ── cog / lock ───────────────────────────────────────────────── */
 .ml-cog {
   background: none;
   border: none;
@@ -227,27 +262,25 @@
   transition: color 0.15s, background 0.15s;
 }
 
-.ml-cog:hover {
-  color: var(--primary);
-  background: var(--primary-l2);
-}
-
-.ml-cog svg {
-  width: 17px;
-  height: 17px;
-}
+.ml-cog:hover { color: var(--primary); background: var(--primary-l2); }
+.ml-cog svg  { width: 16px; height: 16px; }
 
 .ml-locked {
   display: inline-flex;
   padding: 5px;
   color: var(--placeholder);
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 0.45;
 }
 
-.ml-locked svg {
-  width: 15px;
-  height: 15px;
+.ml-locked svg { width: 14px; height: 14px; }
+
+/* ── empty ────────────────────────────────────────────────────── */
+.ml-empty {
+  text-align: center;
+  padding: 36px;
+  color: var(--grey);
+  font-size: 13px;
 }
 
 /* ── placeholder panels ───────────────────────────────────────── */
@@ -255,7 +288,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 300px;
+  height: 280px;
   color: var(--grey);
   font-size: 14px;
 }

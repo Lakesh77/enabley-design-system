@@ -66,7 +66,8 @@
   background: var(--white);
   border-radius: var(--r-card);
   box-shadow: var(--shadow-lg);
-  width: 760px; max-width: 96vw;
+  width: 80%;
+  max-width: 1100px;
   overflow: hidden;
 }
 .ml-modal-header {

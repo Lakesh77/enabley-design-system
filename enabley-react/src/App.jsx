@@ -6,6 +6,7 @@ import {
   ManageLearners,
   DataTable,
 } from './components';
+import ManageLearnersPage from './pages/ManageLearnersPage';
 import './App.css';
 
 const NAV = [
@@ -328,7 +329,7 @@ export default function App() {
 
           {/* FEATURES */}
           <Section id="features" title="Features" desc="Real product UI built with the Enabley design system.">
-            <Story name="Manage Learners" meta="course assignment panel">
+            <Story name="Manage Learners Modal" meta="80% width · sortable · searchable">
               <Button variant="primary" size="sm" onClick={() => setLearners(true)}>
                 Open Manage Learners
               </Button>
@@ -343,6 +344,11 @@ export default function App() {
                   </div>
                 </div>
               )}
+            </Story>
+            <Story name="Manage Learners Page" meta="standalone page">
+              <div style={{ width: '100%', border: '1px solid var(--primary-l2)', borderRadius: 'var(--r-card)', overflow: 'hidden', height: 380 }}>
+                <ManageLearnersPage />
+              </div>
             </Story>
           </Section>
 
